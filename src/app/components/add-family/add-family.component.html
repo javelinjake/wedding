@@ -1,3 +1,120 @@
-<p>
-  add-family works!
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back To Dashboard
+    </a>
+  </div>
+  <div class="col-md-6">
+
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Add Family
+  </div>
+  <div class="card-body">
+    <form #familyForm="ngForm" (ngSubmit)="onSubmit(familyForm)">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="firstName"
+          #familyFirstName="ngModel"
+          [ngClass]="{'is-invalid':familyFirstName.errors && familyFirstName.touched}"
+          [(ngModel)]="family.firstName"
+          minlength="2"
+          required
+        >
+
+        <div [hidden]="!familyFirstName.errors?.required" class="invalid-feedback">
+          First name required
+        </div>
+
+        <div [hidden]="!familyFirstName.errors?.minlength" class="invalid-feedback">
+          Must be at least 2 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="lastName"
+          #familyLastName="ngModel"
+          [ngClass]="{'is-invalid':familyLastName.errors && familyLastName.touched}"
+          [(ngModel)]="family.lastName"
+          minlength="2"
+          required
+        >
+
+        <div [hidden]="!familyLastName.errors?.required" class="invalid-feedback">
+          Last name required
+        </div>
+
+        <div [hidden]="!familyLastName.errors?.minlength" class="invalid-feedback">
+          Must be at least 2 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          class="form-control"
+          name="email"
+          #familyEmail="ngModel"
+          [ngClass]="{'is-invalid':familyEmail.errors && familyEmail.touched}"
+          [(ngModel)]="family.email"
+          pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+          required
+        >
+
+        <div [hidden]="!familyEmail.errors?.required" class="invalid-feedback">
+          Email required
+        </div>
+
+        <div [hidden]="!familyEmail.errors?.pattern" class="invalid-feedback">
+          Email is not valid
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input
+          type="text"
+          class="form-control"
+          [ngClass]="{'is-invalid':familyPhone.errors && familyPhone.touched}"
+          [(ngModel)]="family.phone"
+          name="phone"
+          #familyPhone = "ngModel"
+          minlength="10"
+          required
+        >
+        <div [hidden]="!familyPhone.errors?.required" class="invalid-feedback">
+          Phone is required
+        </div>
+
+        <div [hidden]="!familyPhone.errors?.minlength" class="invalid-feedback">
+          Must be at least 10 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="balance">Balance</label>
+        <input
+          type="number"
+          class="form-control"
+          [(ngModel)]="family.balance"
+          name="balance"
+          #familyBalance = "ngModel"
+          [disabled]="disableBalanceOnAdd"
+        >
+      </div>
+
+      <input type="submit" value="Submit" class="btn btn-outline-primary btn-block">
+    </form>
+  </div>
+</div>
