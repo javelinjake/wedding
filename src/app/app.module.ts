@@ -24,6 +24,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AppRoutingModule } from './/app-routing.module';
 
 import { environment } from '../environments/environment';
+import { HeroComponent } from './components/hero/hero.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { environment } from '../environments/environment';
     DashboardComponent,
     AddFamilyComponent,
     AccomodationComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HeroComponent
   ],
   imports: [
     BrowserModule,
