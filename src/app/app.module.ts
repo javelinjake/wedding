@@ -25,6 +25,7 @@ import { FindFamilyComponent } from './components/find-family/find-family.compon
 import { AppRoutingModule } from './/app-routing.module';
 
 import { environment } from '../environments/environment';
+import { HeroComponent } from './components/hero/hero.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { environment } from '../environments/environment';
     AddFamilyComponent,
     AccomodationComponent,
     NotFoundComponent,
-    FindFamilyComponent
+    FindFamilyComponent,
+    HeroComponent
   ],
   imports: [
     BrowserModule,
