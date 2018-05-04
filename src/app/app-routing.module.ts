@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { EditFamilyComponent } from './components/edit-family/edit-family.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AddFamilyComponent } from './components/add-family/add-family.component';
+import { FindFamilyComponent } from './components/find-family/find-family.component';
 import { AccomodationComponent } from './components/accomodation/accomodation.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'settings', component: SettingsComponent, canActivate:[AdminGuard]},
   {path: 'family/edit/:id', component: EditFamilyComponent},
   {path: 'family/add', component: AddFamilyComponent},
+  {path: 'family/find', component: FindFamilyComponent},
   {path: 'family/:id', component: ViewFamilyComponent},
   {path: 'login', component: LoginComponent},
   {path: 'accomodation', component: AccomodationComponent},

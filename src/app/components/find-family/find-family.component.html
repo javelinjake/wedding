@@ -1,3 +1,33 @@
-<p>
-  find-family works!
-</p>
+<div class="card">
+  <div class="card-header">
+    Find Family
+  </div>
+  <div class="card-body">
+    <form #findFamilyForm="ngForm" (ngSubmit)="onSubmit(findFamilyForm)">
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="text"
+          class="form-control"
+          password="password"
+          name="password"
+          #familyPassword="ngModel"
+          [ngClass]="{'is-invalid':familyPassword.errors && familyPassword.touched}"
+          [(ngModel)]="family.password"
+          minlength="2"
+          required
+        >
+
+        <div [hidden]="!familyPassword.errors?.required" class="invalid-feedback">
+          Password required
+        </div>
+
+        <div [hidden]="!familyPassword.errors?.minlength" class="invalid-feedback">
+          Must be at least 2 characters
+        </div>
+      </div>
+
+      <input type="submit" value="Submit" class="btn btn-outline-primary btn-block">
+    </form>
+  </div>
+</div>
