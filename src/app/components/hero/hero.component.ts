@@ -1,19 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
-import * as firebase from 'firebase';
+import { AngularFireStorage } from 'angularfire2/storage';
 
 @Component({
   selector: 'app-hero',
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.scss']
 })
-export class HeroComponent implements OnInit {
+export class HeroComponent {
+  backgroundImageUrl: Observable<string | null>;
 
-  constructor() { }
-
-  ngOnInit() {
-    const storageRef = firebase.storage().ref();
-    console.log(storageRef.child('background-images/pablo-heimplatz-317359-unsplash.jpg'));
+  constructor(
+    private storage: AngularFireStorage
+  ) {
+    const backgroundImageStorageRef = this.storage.ref('background-images/pablo-heimplatz-317359-unsplash.jpg');
+    this.backgroundImageUrl = backgroundImageStorageRef.getDownloadURL();
   }
 
 }

@@ -1,11 +1,11 @@
-<section class="hero is-fullheight has-bg-img" style="background-image: 'https://images.unsplash.com/photo-1500644813727-ac2ce0ae31f8'">
+<section class="hero is-fullheight has-bg-img" [style.background-image]="'url(' + backgroundImageUrl.promise.i + ')' | safe: 'style'">
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
         Full Height title
       </h1>
       <h2 class="subtitle">
-        Full Height subtitle
+        Subtitle
       </h2>
     </div>
   </div>

@@ -26,6 +26,7 @@ import { AppRoutingModule } from './/app-routing.module';
 
 import { environment } from '../environments/environment';
 import { HeroComponent } from './components/hero/hero.component';
+import { SafePipe } from './pipes/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { HeroComponent } from './components/hero/hero.component';
     AccomodationComponent,
     NotFoundComponent,
     FindFamilyComponent,
-    HeroComponent
+    HeroComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
