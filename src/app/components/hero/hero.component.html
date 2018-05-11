@@ -1,12 +1,28 @@
-<section class="hero is-fullheight has-bg-img" [style.background-image]="'url(' + backgroundImageUrl.promise.i + ')' | safe: 'style'">
+<section class="hero is-fullheight has-bg-img">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title">
-        Full Height title
-      </h1>
-      <h2 class="subtitle">
-        Subtitle
-      </h2>
+      <div class="columns is-centered">
+        <div class="column is-4">
+          <div class="box content">
+            <h1 class="title">
+              Full Height title
+            </h1>
+            <h2 class="subtitle">
+              Subtitle
+            </h2>
+            <div class="field has-addons">
+              <div class="control">
+                <input class="input" type="text" placeholder="Find a repository">
+              </div>
+              <div class="control">
+                <a class="button is-info">
+                  Search
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
