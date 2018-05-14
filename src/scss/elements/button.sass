@@ -7,7 +7,7 @@ $button-hover-border-color: $link-hover-border !default
 
 $button-focus-color: $link-focus !default
 $button-focus-border-color: $link-focus-border !default
-$button-focus-box-shadow-size: 0 0 0 0.125em !default
+$button-focus-box-shadow-size: 0 0 0 0 !default
 $button-focus-box-shadow-color: rgba($link, 0.25) !default
 
 $button-active-color: $link-active !default
@@ -28,7 +28,6 @@ $button-static-border-color: $grey-lighter !default
 
 // The button sizes use mixins so they can be used at different breakpoints
 =button-small
-  border-radius: $radius-small
   font-size: $size-small
 =button-medium
   font-size: $size-medium
@@ -144,8 +143,7 @@ $button-static-border-color: $grey-lighter !default
         background-color: transparent
         border-color: $color
         color: $color
-        &:hover,
-        &:focus
+        &:hover
           background-color: $color
           border-color: $color
           color: $color-invert
@@ -161,8 +159,7 @@ $button-static-border-color: $grey-lighter !default
         background-color: transparent
         border-color: $color-invert
         color: $color-invert
-        &:hover,
-        &:focus
+        &:hover
           background-color: $color-invert
           color: $color
         &[disabled]
@@ -203,6 +200,17 @@ $button-static-border-color: $grey-lighter !default
     border-radius: $radius-rounded
     padding-left: 1em
     padding-right: 1em
+  &.is-basic
+    background-color: transparent
+    border-color: $black
+    box-shadow: inset 0em 0em 0em 0.05em transparent
+    transition-duration: 0.2s
+    transition-property: box-shadow
+    &:hover
+      box-shadow: inset 0em 0em 0em 0.05em black
+  &.has-more-padding
+    padding-left: 3em
+    padding-right: 3em
 
 .buttons
   align-items: center

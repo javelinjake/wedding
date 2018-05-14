@@ -1,33 +1,38 @@
-<div class="card">
-  <div class="card-header">
-    Find Family
+<!-- <form #findFamilyForm="ngForm" (ngSubmit)="onSubmit(findFamilyForm)">
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="text" class="form-control" password="password" name="password" #familyPassword="ngModel" [ngClass]="{'is-invalid':familyPassword.errors && familyPassword.touched}"
+      [(ngModel)]="family.password" minlength="2" required>
+
+    <div [hidden]="!familyPassword.errors?.required" class="invalid-feedback">
+      Password required
+    </div>
+
+    <div [hidden]="!familyPassword.errors?.minlength" class="invalid-feedback">
+      Must be at least 2 characters
+    </div>
   </div>
-  <div class="card-body">
-    <form #findFamilyForm="ngForm" (ngSubmit)="onSubmit(findFamilyForm)">
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input
-          type="text"
-          class="form-control"
-          password="password"
-          name="password"
-          #familyPassword="ngModel"
-          [ngClass]="{'is-invalid':familyPassword.errors && familyPassword.touched}"
-          [(ngModel)]="family.password"
-          minlength="2"
-          required
-        >
 
-        <div [hidden]="!familyPassword.errors?.required" class="invalid-feedback">
-          Password required
+  <input type="submit" value="Submit" class="button is-basic is-fullwidth">
+</form>
+
+ -->
+
+<form #findFamilyForm="ngForm" (ngSubmit)="onSubmit(findFamilyForm)">
+    <div class="field has-addons has-addons-fullwidth">
+        <div class="control">
+            <input class="input is-basic" 
+            type="text" 
+            placeholder="Password" 
+            name="password"
+            autofocus
+            #familyPassword="ngModel"
+            [(ngModel)]="family.password">
         </div>
-
-        <div [hidden]="!familyPassword.errors?.minlength" class="invalid-feedback">
-          Must be at least 2 characters
+        <div class="control">
+            <button class="button is-primary is-outlined is-fullwidth"
+            [ngClass]="{'is-loading': findFamilyLoading}"
+            type="submit">Go</button>
         </div>
-      </div>
-
-      <input type="submit" value="Submit" class="btn btn-outline-primary btn-block">
-    </form>
-  </div>
-</div>
+    </div>
+</form>
