@@ -1,3 +1,121 @@
-<p>
-  settings works!
-</p>
+<div *ngIf="!canEnterSettings">
+  <section class="hero has-bg-img has-transparent-overlay" style="background-image: url('/assets/jakealex3.jpg')">
+    <div class="hero-body has-text-centered">
+      <div class="container">
+        <h1 class="title has-text-white">
+          Settings
+        </h1>
+        <h2 class="subtitle has-text-white">
+          Edit settings, add families
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-one-quarter">
+
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">
+                Settings
+              </p>
+            </header>
+            <div class="card-content">
+              <div class="content">
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="column is-two-quarter">
+
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">
+                Add family
+              </p>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                <app-add-family></app-add-family>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="column is-one-quarter">
+
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">
+                Families
+              </p>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                <table class="table is-fullwidth">
+                  <tbody>
+                    <tr>
+                      <td>Three</td>
+                      <td><a href="#">edit</a></td>
+                    </tr>
+                    <tr>
+                      <td>Five</td>
+                      <td><a href="#">edit</a></td>
+                    </tr>
+                    <tr>
+                      <td>Seven</td>
+                      <td><a href="#">edit</a></td>
+                    </tr>
+                    <tr>
+                      <td>Nine</td>
+                      <td><a href="#">edit</a></td>
+                    </tr>
+                    <tr>
+                      <td>Eleven</td>
+                      <td><a href="#">edit</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</div>
+
+<section *ngIf="canEnterSettings" class="hero is-fullheight has-bg-img" style="background-image: url('/assets/jakealex3.jpg')">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-fixed-hero">
+          <div class="box content has-text-centered">
+            <h1 class="title is-size-1 is-marginless">
+              <div class="is-normal-family is-size-3 has-margin-bottom">Settings page</div>
+            </h1>
+            <form #findSettingsForm="ngForm" (ngSubmit)="onSubmit(findSettingsForm)">
+              <div class="field has-addons has-addons-fullwidth">
+                <div class="control">
+                  <input class="input is-basic" type="text" placeholder="Password" name="password" autofocus #settingsPassword="ngModel" [(ngModel)]="settings.password">
+                </div>
+                <div class="control">
+                  <button class="button is-primary is-outlined is-fullwidth" [ngClass]="{'is-loading': findSettingsLoading}" type="submit">Go</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

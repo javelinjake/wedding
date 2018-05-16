@@ -97,7 +97,8 @@
         padding-bottom: 18rem
         padding-top: 18rem
   &.is-halfheight,
-  &.is-fullheight
+  &.is-fullheight,
+  &.is-threequartersheight
     .hero-body
       align-items: center
       display: flex
@@ -106,12 +107,24 @@
         flex-shrink: 1
   &.is-halfheight
     min-height: 50vh
+  &.is-threequartersheight
+    min-height: 75vh
   &.is-fullheight
     min-height: 100vh
   &.has-bg-img
     background-position: center center
     background-size: cover
-    background-repeat:  no-repeat
+    background-repeat: no-repeat
+  &.has-transparent-overlay
+    position: relative
+    &:before
+      content: ""
+      position: absolute
+      top: 0
+      left: 0
+      height: 100%
+      width: 100%
+      background-color: rgba(0,0,0,0.3)
 
 // Components
 

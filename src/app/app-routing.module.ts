@@ -17,7 +17,7 @@ import { AdminGuard } from './guards/admin.guard';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate:[AdminGuard]},
-  {path: 'settings', component: SettingsComponent, canActivate:[AdminGuard]},
+  {path: 'settings', component: SettingsComponent},
   {path: 'family/edit/:id', component: EditFamilyComponent},
   {path: 'family/add', component: AddFamilyComponent},
   {path: 'family/find', component: FindFamilyComponent},

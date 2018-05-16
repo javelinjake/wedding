@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
 import { AngularFireModule } from 'angularfire2';
@@ -9,6 +9,7 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { FamilyService } from './services/family.service';
+import { SettingsService } from './services/settings.service';
 
 import { AppComponent } from './app.component';
 import { ViewFamilyComponent } from './components/view-family/view-family.component';
@@ -28,32 +29,35 @@ import { environment } from '../environments/environment';
 import { HeroComponent } from './components/hero/hero.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ViewFamilyComponent,
-    SettingsComponent,
-    NavigationComponent,
-    LoginComponent,
-    HomeComponent,
-    EditFamilyComponent,
-    DashboardComponent,
-    AddFamilyComponent,
-    AccomodationComponent,
-    NotFoundComponent,
-    FindFamilyComponent,
-    HeroComponent
-  ],
-  imports: [
-    BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
-    AngularFireAuthModule,
-    AngularFireStorageModule,
-    FormsModule,
-    FlashMessagesModule.forRoot(),
-    AppRoutingModule
-  ],
-  providers: [FamilyService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        ViewFamilyComponent,
+        SettingsComponent,
+        NavigationComponent,
+        LoginComponent,
+        HomeComponent,
+        EditFamilyComponent,
+        DashboardComponent,
+        AddFamilyComponent,
+        AccomodationComponent,
+        NotFoundComponent,
+        FindFamilyComponent,
+        HeroComponent
+    ],
+    imports: [
+        BrowserModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFirestoreModule,
+        AngularFireAuthModule,
+        AngularFireStorageModule,
+        FormsModule,
+        FlashMessagesModule.forRoot(),
+        AppRoutingModule
+    ],
+    providers: [
+        FamilyService,
+        SettingsService
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -31,14 +31,14 @@ export class AddFamilyComponent implements OnInit {
     if(!valid) {
       // Show error
       this.flashMessage.show('Please fill out the form correctly', {
-        cssClass: 'alert-danger', timeout: 4000
+        cssClass: 'message is-warning', timeout: 4000
       });
     } else {
       // Add new family
       this.familyService.newFamily(value);
       // Show message
       this.flashMessage.show('New family added', {
-        cssClass: 'alert-success', timeout: 4000
+        cssClass: 'message is-success', timeout: 4000
       });
     }
   }
