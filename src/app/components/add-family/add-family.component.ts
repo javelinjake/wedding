@@ -3,6 +3,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { FamilyService } from '../../services/family.service';
 
 import { Family } from '../../models/Family';
+import { Member } from '../../models/Member';
 
 @Component({
   selector: 'app-add-family',
@@ -18,6 +19,9 @@ export class AddFamilyComponent implements OnInit {
     day: true,
     photo: ''
   }
+  member: Member = {
+    name: ''
+  }
 
   constructor(
     private flashMessage: FlashMessagesService,
@@ -25,6 +29,10 @@ export class AddFamilyComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+  }
+
+  addMember() {
+    this.family.members.push(this.member);
   }
 
   onSubmit({value, valid}: {value: Family, valid: boolean}) {

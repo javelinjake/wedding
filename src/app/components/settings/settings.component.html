@@ -1,4 +1,4 @@
-<div *ngIf="canEnterSettings">
+<div *ngIf="!canEnterSettings">
   <section class="hero has-bg-img has-transparent-overlay" style="background-image: url('/assets/jakealex3.jpg')">
     <div class="hero-body has-text-centered">
       <div class="container">
@@ -94,7 +94,7 @@
 
 </div>
 
-<section *ngIf="!canEnterSettings" class="hero is-fullheight has-bg-img" style="background-image: url('/assets/jakealex3.jpg')">
+<section *ngIf="canEnterSettings" class="hero is-fullheight has-bg-img" style="background-image: url('/assets/jakealex3.jpg')">
   <div class="hero-body">
     <div class="container">
       <div class="columns is-centered">

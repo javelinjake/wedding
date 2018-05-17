@@ -16,9 +16,9 @@
   </div>
 
   <div class="field">
-    <label for="familyPassword" class="label">Family password</label>
+    <label for="familyPassword" class="label">Password</label>
     <div class="control">
-      <input id="familyPassword" type="text" class="input is-small" name="password" #familyPassword="ngModel" [ngClass]="{'is-danger':familyPassword.errors && familyPassword.touched}"
+      <input id="familyPassword" type="text" class="input is-small" name="familyPassword" #familyPassword="ngModel" [ngClass]="{'is-danger':familyPassword.errors && familyPassword.touched}"
         [(ngModel)]="family.password" minlength="4" required>
 
       <div [ngClass]="{'is-hidden': !familyPassword.errors?.required || !familyPassword.touched}" class="help is-danger">
@@ -31,11 +31,46 @@
   </div>
 
   <div class="field">
+    <label for="familyAddress" class="label">Address</label>
     <div class="control">
-      <label class="checkbox">
-        <input type="checkbox"> Invited to day
+      <input id="familyAddress" type="text" class="input is-small" name="familyAddress" #familyAddress="ngModel" [(ngModel)]="family.address">
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <label for="familyDay" class="checkbox">
+        <input id="familyDay" name="familyDay" #familyDay="ngModel" [(ngModel)]="family.day" type="checkbox"> Invited to day
       </label>
     </div>
+  </div>
+
+  <hr>
+
+  <div class="field is-centered">
+    <div class="control">
+      <button class="button is-primary is-outlined" type="button" (click)="addMember()">Add member</button>
+    </div>
+  </div>
+
+  <div *ngFor="let member of family.members; let i = index">
+    <h2>Member - {{ i }}</h2>
+
+    <!-- <div class="field">
+      <label for="memberName" class="label">Member name</label>
+      <div class="control">
+        <input id="memberName" type="text" class="input is-small" name="memberName" #memberName="ngModel" [ngClass]="{'is-danger':memberName.errors && memberName.touched}"
+          [(ngModel)]="family.members[i].name" minlength="2" required>
+  
+        <div [ngClass]="{'is-hidden': !memberName.errors?.required || !memberName.touched}" class="help is-danger">
+          Member name is required
+        </div>
+        <div [ngClass]="{'is-hidden': !memberName.errors?.minlength || !memberName.touched}" class="help is-danger">
+          Must be at least 2 characters
+        </div>
+      </div>
+    </div> -->
+
   </div>
 
   <div class="field is-grouped is-grouped-centered">
@@ -46,4 +81,14 @@
       <button class="button is-secondary is-outlined" type="button" (click)="familyForm.reset()">Cancel</button>
     </div>
   </div>
+
+  <article class="message is-info">
+    <div class="message-body">
+      <pre>
+        {{family | json}}
+      </pre>
+    </div>
+  </article>
+
+
 </form>
