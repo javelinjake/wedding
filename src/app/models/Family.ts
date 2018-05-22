@@ -7,5 +7,5 @@ export interface Family {
   address?: string;
   day?: boolean;
   photo?: string;
-  members?: Member;
+  members?: object;
 }

@@ -53,23 +53,16 @@
     </div>
   </div>
 
-  <div *ngFor="let member of family.members; let i = index">
+  <div *ngFor="let member of membersList; let i = index">
     <h2>Member - {{ i }}</h2>
 
-    <!-- <div class="field">
-      <label for="memberName" class="label">Member name</label>
+    <div class="field">
+      <label for="memberName-{{i}}" class="label">Member name</label>
       <div class="control">
-        <input id="memberName" type="text" class="input is-small" name="memberName" #memberName="ngModel" [ngClass]="{'is-danger':memberName.errors && memberName.touched}"
-          [(ngModel)]="family.members[i].name" minlength="2" required>
-  
-        <div [ngClass]="{'is-hidden': !memberName.errors?.required || !memberName.touched}" class="help is-danger">
-          Member name is required
-        </div>
-        <div [ngClass]="{'is-hidden': !memberName.errors?.minlength || !memberName.touched}" class="help is-danger">
-          Must be at least 2 characters
-        </div>
+        <input id="memberName-{{i}}" type="text" class="input is-small" name="family.members[{{i}}].name" #family.members[i].name="ngModel"
+          [(ngModel)]="family.members[i].name">
       </div>
-    </div> -->
+    </div>
 
   </div>
 

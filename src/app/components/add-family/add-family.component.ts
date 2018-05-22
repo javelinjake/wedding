@@ -3,7 +3,6 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { FamilyService } from '../../services/family.service';
 
 import { Family } from '../../models/Family';
-import { Member } from '../../models/Member';
 
 @Component({
   selector: 'app-add-family',
@@ -12,16 +11,48 @@ import { Member } from '../../models/Member';
 })
 export class AddFamilyComponent implements OnInit {
 
+  membersList = [0,1,2,3,4,5,6,7,8,9];
+
   family: Family = {
     name: '',
     password: '',
     address: '',
     day: true,
-    photo: ''
+    photo: '',
+    members: [
+      {
+        name: ''
+      },
+      {
+        name: ''
+      },
+      {
+        name: ''
+      },
+      {
+        name: ''
+      },
+      {
+        name: ''
+      },
+      {
+        name: ''
+      },
+      {
+        name: ''
+      },
+      {
+        name: ''
+      },
+      {
+        name: ''
+      },
+      {
+        name: ''
+      }
+    ]
   }
-  member: Member = {
-    name: ''
-  }
+ 
 
   constructor(
     private flashMessage: FlashMessagesService,
@@ -31,11 +62,8 @@ export class AddFamilyComponent implements OnInit {
   ngOnInit() {
   }
 
-  addMember() {
-    this.family.members.push(this.member);
-  }
-
   onSubmit({value, valid}: {value: Family, valid: boolean}) {
+    console.log(value);
     if(!valid) {
       // Show error
       this.flashMessage.show('Please fill out the form correctly', {
