@@ -28,6 +28,8 @@ import { AppRoutingModule } from './/app-routing.module';
 import { environment } from '../environments/environment';
 import { HeroComponent } from './components/hero/hero.component';
 
+import { AgmCoreModule } from '@agm/core';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -50,6 +52,7 @@ import { HeroComponent } from './components/hero/hero.component';
         AngularFirestoreModule,
         AngularFireAuthModule,
         AngularFireStorageModule,
+        AgmCoreModule.forRoot({apiKey: environment.googleAPI}),
         FormsModule,
         FlashMessagesModule.forRoot(),
         AppRoutingModule

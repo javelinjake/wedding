@@ -7,5 +7,6 @@ export const environment = {
     projectId: "alex-and-jakes-wedding",
     storageBucket: "alex-and-jakes-wedding.appspot.com",
     messagingSenderId: "884722090258"
-  }
+  },
+  googleAPI: "AIzaSyChVkHY89qMed8nPSJjR9oCSWMuZFMX_sQ"
 };
