@@ -1,3 +1,62 @@
+<form [formGroup]="familyForm" (ngSubmit)="submitHandler()">
+
+  <!-- <pre>Value: {{ familyForm.value | json }}</pre> -->
+
+  <div class="field">
+    <label for="familyName" class="label">Family name</label>
+    <div class="control">
+      <input formControlName="name" placeholder="Family name" id="familyName" type="text" class="input is-small" name="familyName"
+        required>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="familyPassword" class="label">Family password</label>
+    <div class="control">
+      <input formControlName="password" placeholder="Family password" id="familyPassword" type="text" class="input is-small" name="familyPassword"
+        required>
+    </div>
+  </div>
+
+  <input formControlName="address">
+  <input formControlName="photo">
+  <input formControlName="day">
+
+  <div formArrayName="members">
+
+    <div *ngFor="let member of memberForms.controls; let i=index" [formGroupName]="i">
+
+      <div class="field">
+        <label for="firstName" class="label">First name</label>
+        <div class="control">
+          <input formControlName="firstName" id="firstName" type="text" class="input is-small" name="firstName">
+        </div>
+      </div>
+
+      <input formControlName="lastName">
+      <input formControlName="rsvp">
+      <input formControlName="dietry">
+      <input formControlName="rsvpJake">
+      <input formControlName="song">
+
+      <button type="button" (click)="deleteMember(i)">Delete</button>
+
+    </div>
+  </div>
+
+  <button type="button" (click)="addMember()">Add Family Member</button>
+
+  <div class="field is-grouped is-grouped-centered">
+    <div class="control">
+      <button class="button is-primary is-outlined" type="submit">Add</button>
+    </div>
+    <div class="control">
+      <button class="button is-secondary is-outlined" type="button" (click)="familyForm.reset()">Cancel</button>
+    </div>
+  </div>
+
+</form>
+<!-- 
 <form #familyForm="ngForm" (ngSubmit)="onSubmit(familyForm)">
 
   <div class="field">
@@ -84,4 +143,4 @@
   </article>
 
 
-</form>
+</form> -->
