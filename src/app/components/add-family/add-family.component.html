@@ -79,7 +79,7 @@
 
   <div class="field is-grouped is-grouped-centered">
     <div class="control">
-      <button class="button is-primary is-outlined" type="submit">Add</button>
+      <button class="button is-primary is-outlined" type="submit" [ngClass]="{'is-loading': formLoading}">Add</button>
     </div>
     <div class="control">
       <button class="button is-secondary is-outlined" type="button" (click)="familyForm.reset()">Cancel</button>
