@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
 import { AngularFireModule } from 'angularfire2';
@@ -53,6 +53,7 @@ import { AgmCoreModule } from '@agm/core';
         AngularFireAuthModule,
         AngularFireStorageModule,
         AgmCoreModule.forRoot({apiKey: environment.googleAPI}),
+        ReactiveFormsModule,
         FormsModule,
         FlashMessagesModule.forRoot(),
         AppRoutingModule
