@@ -25,7 +25,6 @@ export class AddFamilyComponent implements OnInit {
       password: '',
       address: '',
       photo: '',
-      day: '',
       members: this.fb.array([])
     })
   }
@@ -39,10 +38,7 @@ export class AddFamilyComponent implements OnInit {
     const member = this.fb.group({
       firstName: '',
       lastName: '',
-      rsvp: '',
-      dietry: '',
-      rsvpJake: '',
-      song: ''
+      day: true
     })
 
     this.memberForms.push(member);
@@ -71,6 +67,11 @@ export class AddFamilyComponent implements OnInit {
           try {
             this.familyService.newFamily(formValue);
             console.log('Family added: ', formValue);
+            this.familyForm.reset();
+            // var i;
+            // for (i = 0; i < cars.length; i++) { 
+            //     text += cars[i] + "<br>";
+            // }
             // Show message
             this.flashMessage.show('New family added', {
               cssClass: 'message is-success', timeout: 4000

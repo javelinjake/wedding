@@ -3,7 +3,7 @@
   <!-- <pre>Value: {{ familyForm.value | json }}</pre> -->
 
   <div class="field">
-    <label for="familyName" class="label">Family name</label>
+    <label for="familyName" class="label">Name</label>
     <div class="control">
       <input formControlName="name" placeholder="Family name" id="familyName" type="text" class="input is-small" name="familyName"
         required>
@@ -11,40 +11,71 @@
   </div>
 
   <div class="field">
-    <label for="familyPassword" class="label">Family password</label>
+    <label for="familyPassword" class="label">Password</label>
     <div class="control">
       <input formControlName="password" placeholder="Family password" id="familyPassword" type="text" class="input is-small" name="familyPassword"
         required>
     </div>
   </div>
 
-  <input formControlName="address">
-  <input formControlName="photo">
-  <input formControlName="day">
+  <div class="field">
+    <label for="familyAddress" class="label">Address</label>
+    <div class="control">
+      <input formControlName="address" placeholder="Family address" id="familyAddress" type="text" class="input is-small" name="familyAddress">
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="familyPhoto" class="label">Photo</label>
+    <div class="control">
+      <input formControlName="photo" placeholder="Family photo" id="familyPhoto" type="text" class="input is-small" name="familyPhoto">
+    </div>
+  </div>
 
   <div formArrayName="members">
 
-    <div *ngFor="let member of memberForms.controls; let i=index" [formGroupName]="i">
+    <h3 class="has-text-centered is-normal-family is-size-5">Family members</h3>
+
+    <div *ngFor="let member of memberForms.controls; let i=index" [formGroupName]="i" class="has-some-padding">
+
+      <hr>
+
+      <h3 class="has-text-centered is-normal-family is-size-6">{{member.value.firstName}} {{member.value.lastName}}</h3>
 
       <div class="field">
-        <label for="firstName" class="label">First name</label>
+        <label for="memberFirstName" class="label">First name</label>
         <div class="control">
-          <input formControlName="firstName" id="firstName" type="text" class="input is-small" name="firstName">
+          <input formControlName="firstName" id="memberFirstName" type="text" class="input is-small" name="memberFirstName" required>
         </div>
       </div>
 
-      <input formControlName="lastName">
-      <input formControlName="rsvp">
-      <input formControlName="dietry">
-      <input formControlName="rsvpJake">
-      <input formControlName="song">
+      <div class="field">
+        <label for="memberLastName" class="label">Last name</label>
+        <div class="control">
+          <input formControlName="lastName" id="memberLastName" type="text" class="input is-small" name="memberLastName" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <label for="memberDay" class="checkbox">
+            <input formControlName="day" id="memberDay" type="checkbox" name="memberDay"> Invited to day?
+          </label>
+        </div>
+      </div>
 
       <button type="button" (click)="deleteMember(i)">Delete</button>
 
     </div>
   </div>
 
-  <button type="button" (click)="addMember()">Add Family Member</button>
+  <div class="field is-grouped is-grouped-centered">
+    <div class="control">
+      <button class="button is-primary is-small is-outlined" type="button" (click)="addMember()">Add family member</button>
+    </div>
+  </div>
+
+  <hr>
 
   <div class="field is-grouped is-grouped-centered">
     <div class="control">
