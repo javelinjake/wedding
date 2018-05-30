@@ -1,18 +1,34 @@
-<section class="hero has-bg-img has-transparent-overlay" *ngIf="family?.photo" [ngStyle]="{'background-image': 'url(/assets/' + family.photo + '.jpg)'}">
+<section class="hero is-medium has-bg-img has-transparent-overlay" *ngIf="family?.photo" [ngStyle]="{'background-image': 'url(/assets/' + family.photo + '.jpg)'}">
   <div class="hero-body has-text-centered">
     <div class="container content">
-      <h1 class="title has-text-white">
+      <!-- <h2 class="is-normal-family is-size-4 subtitle has-text-white">
+        Alexandra West &amp; Jacob Lewis Invites
+      </h2> -->
+      <h1 class="has-text-white is-marginless">
         The {{family.name}} family
       </h1>
-      <h2 class="is-normal-family is-size-5 subtitle has-text-white">
-        RSVP, dietry needs and song request
-      </h2>
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
+    <div class="columns is-multiline is-centered" *ngIf="family.members">
+      <div class="column is-one-third" *ngFor="let member of family.members">
+        <div class="card">
+          <header class="card-header has-text-centered">
+            <p class="card-header-title">
+                {{member.firstName}} {{member.lastName}}
+            </p>
+          </header>
+          <div class="card-content">
+            <div class="content">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </div>
 </section>
