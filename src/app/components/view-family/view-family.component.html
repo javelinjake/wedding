@@ -1,3 +1,18 @@
-<p>
-  view-family works!
-</p>
+<section class="hero has-bg-img has-transparent-overlay" *ngIf="family?.photo" [ngStyle]="{'background-image': 'url(/assets/' + family.photo + '.jpg)'}">
+  <div class="hero-body has-text-centered">
+    <div class="container content">
+      <h1 class="title has-text-white">
+        The {{family.name}} family
+      </h1>
+      <h2 class="is-normal-family is-size-5 subtitle has-text-white">
+        RSVP, dietry needs and song request
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+  </div>
+</section>

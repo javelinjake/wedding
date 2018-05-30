@@ -1,4 +1,9 @@
 export interface Member {
     id?: string;
-    name?: string;
+    firstName?: string;
+    lastName?: string;
+    day?: boolean;
+    rsvp?: boolean;
+    rsvpJake?: boolean;
+    song?: string;
   }

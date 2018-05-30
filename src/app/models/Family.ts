@@ -5,7 +5,6 @@ export interface Family {
   name?: string;
   password?: string;
   address?: string;
-  day?: boolean;
   photo?: string;
   members?: Member;
 }

@@ -28,7 +28,8 @@
   <div class="field">
     <label for="familyPhoto" class="label">Photo</label>
     <div class="control">
-      <input formControlName="photo" placeholder="Family photo" id="familyPhoto" type="text" class="input is-small" name="familyPhoto">
+      <input formControlName="photo" placeholder="Family photo" id="familyPhoto" type="text" class="input is-small" name="familyPhoto"
+        required>
     </div>
   </div>
 
@@ -57,14 +58,18 @@
       </div>
 
       <div class="field">
-        <div class="control">
-          <label for="memberDay" class="checkbox">
-            <input formControlName="day" id="memberDay" type="checkbox" name="memberDay"> Invited to day?
-          </label>
+        <div class="columns">
+          <div class="column">
+            <div class="control">
+              <input formControlName="day" class="is-checkradio" id="memberDay" type="checkbox" name="memberDay">
+              <label for="memberDay" class="is-marginless">Invited to day?</label>
+            </div>
+          </div>
+          <div class="column has-text-right">
+            <button type="button" (click)="deleteMember(i)">Delete</button>
+          </div>
         </div>
       </div>
-
-      <button type="button" (click)="deleteMember(i)">Delete</button>
 
     </div>
   </div>
@@ -82,96 +87,8 @@
       <button class="button is-primary is-outlined" type="submit" [ngClass]="{'is-loading': formLoading}">Add</button>
     </div>
     <div class="control">
-      <button class="button is-secondary is-outlined" type="button" (click)="familyForm.reset()">Cancel</button>
+      <button class="button is-secondary is-outlined" type="button" (click)="clearForm()">Cancel</button>
     </div>
   </div>
 
 </form>
-<!-- 
-<form #familyForm="ngForm" (ngSubmit)="onSubmit(familyForm)">
-
-  <div class="field">
-    <label for="familyName" class="label">Family name</label>
-    <div class="control">
-      <input id="familyName" type="text" class="input is-small" name="familyName" #familyName="ngModel" [ngClass]="{'is-danger':familyName.errors && familyName.touched}"
-        [(ngModel)]="family.name" minlength="2" required>
-
-      <div [ngClass]="{'is-hidden': !familyName.errors?.required || !familyName.touched}" class="help is-danger">
-        Family name is required
-      </div>
-      <div [ngClass]="{'is-hidden': !familyName.errors?.minlength || !familyName.touched}" class="help is-danger">
-        Must be at least 2 characters
-      </div>
-    </div>
-  </div>
-
-  <div class="field">
-    <label for="familyPassword" class="label">Password</label>
-    <div class="control">
-      <input id="familyPassword" type="text" class="input is-small" name="familyPassword" #familyPassword="ngModel" [ngClass]="{'is-danger':familyPassword.errors && familyPassword.touched}"
-        [(ngModel)]="family.password" minlength="4" required>
-
-      <div [ngClass]="{'is-hidden': !familyPassword.errors?.required || !familyPassword.touched}" class="help is-danger">
-        Password is required
-      </div>
-      <div [ngClass]="{'is-hidden': !familyPassword.errors?.minlength || !familyPassword.touched}" class="help is-danger">
-        Must be at least 4 characters
-      </div>
-    </div>
-  </div>
-
-  <div class="field">
-    <label for="familyAddress" class="label">Address</label>
-    <div class="control">
-      <input id="familyAddress" type="text" class="input is-small" name="familyAddress" #familyAddress="ngModel" [(ngModel)]="family.address">
-    </div>
-  </div>
-
-  <div class="field">
-    <div class="control">
-      <label for="familyDay" class="checkbox">
-        <input id="familyDay" name="familyDay" #familyDay="ngModel" [(ngModel)]="family.day" type="checkbox"> Invited to day
-      </label>
-    </div>
-  </div>
-
-  <hr>
-
-  <div class="field is-centered">
-    <div class="control">
-      <button class="button is-primary is-outlined" type="button" (click)="addMember()">Add member</button>
-    </div>
-  </div>
-
-  <div *ngFor="let member of membersList; let i = index">
-    <h2>Member - {{ i }}</h2>
-
-    <div class="field">
-      <label for="memberName-{{i}}" class="label">Member name</label>
-      <div class="control">
-        <input id="memberName-{{i}}" type="text" class="input is-small" name="family.members[{{i}}].name" #family.members[i].name="ngModel"
-          [(ngModel)]="family.members[i].name">
-      </div>
-    </div>
-
-  </div>
-
-  <div class="field is-grouped is-grouped-centered">
-    <div class="control">
-      <button class="button is-primary is-outlined" [ngClass]="{'is-loading': addFamilyLoading}" type="submit">Add</button>
-    </div>
-    <div class="control">
-      <button class="button is-secondary is-outlined" type="button" (click)="familyForm.reset()">Cancel</button>
-    </div>
-  </div>
-
-  <article class="message is-info">
-    <div class="message-body">
-      <pre>
-        {{family | json}}
-      </pre>
-    </div>
-  </article>
-
-
-</form> -->

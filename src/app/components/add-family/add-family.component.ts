@@ -26,7 +26,7 @@ export class AddFamilyComponent implements OnInit {
             name: '',
             password: '',
             address: '',
-            photo: '',
+            photo: 'jakeandalex3',
             members: this.fb.array([])
         })
     }
@@ -44,6 +44,16 @@ export class AddFamilyComponent implements OnInit {
         })
 
         this.memberForms.push(member);
+    }
+
+    clearForm() {
+        this.familyForm = this.fb.group({
+            name: '',
+            password: '',
+            address: '',
+            photo: 'jakeandalex3',
+            members: this.fb.array([])
+        })
     }
 
     deleteMember(i) {
@@ -75,13 +85,7 @@ export class AddFamilyComponent implements OnInit {
                         this.familyService.newFamily(formValue);
                         console.log('Family added: ', formValue);
 
-                        this.familyForm = this.fb.group({
-                            name: '',
-                            password: '',
-                            address: '',
-                            photo: '',
-                            members: this.fb.array([])
-                        })
+                        this.clearForm();
 
                         window.scrollTo({
                             top: 0,
