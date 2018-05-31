@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs/Observable';
 
 import { Family } from '../models/Family';
+import { Member } from '../models/Member';
 
 @Injectable()
 export class FamilyService {
@@ -66,6 +67,11 @@ export class FamilyService {
 
   updateFamily(family: Family) {
     this.familyDoc = this.afs.doc(`families/${family.id}`);
+    this.familyDoc.update(family);
+  }
+
+  updateMember(family: Family, index) {
+    this.familyDoc = this.afs.doc(`families/${family.id}/members/${index}`);
     this.familyDoc.update(family);
   }
 

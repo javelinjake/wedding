@@ -23,6 +23,7 @@ import { AddFamilyComponent } from './components/add-family/add-family.component
 import { AccomodationComponent } from './components/accomodation/accomodation.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FindFamilyComponent } from './components/find-family/find-family.component';
+import { RsvpFamilyComponent } from './components/rsvp-family/rsvp-family.component';
 import { AppRoutingModule } from './/app-routing.module';
 
 import { environment } from '../environments/environment';
@@ -44,7 +45,8 @@ import { AgmCoreModule } from '@agm/core';
         AccomodationComponent,
         NotFoundComponent,
         FindFamilyComponent,
-        HeroComponent
+        HeroComponent,
+        RsvpFamilyComponent
     ],
     imports: [
         BrowserModule,

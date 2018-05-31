@@ -1,0 +1,57 @@
+<div class="card">
+  <header class="card-header has-text-centered">
+    <p class="card-header-title">
+      {{member.firstName}} {{member.lastName}}
+    </p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+
+      <form [formGroup]="memberForm" (ngSubmit)="onSubmit()">
+
+        <input class="is-hidden" formControlName="firstName">
+        <input class="is-hidden" formControlName="lastName">
+        <input class="is-hidden" formControlName="day">
+
+        <div class="field">
+          <div class="control">
+            <input formControlName="rsvp" class="is-checkradio" id="memberRsvp-{{i}}" type="checkbox" name="memberRsvp-{{i}}">
+            <label for="memberRsvp-{{i}}" class="is-marginless">I can attend</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="memberDietry" class="label">Dietry requirements</label>
+          <div class="control">
+            <input formControlName="dietry" placeholder="Dietry requirements" id="memberDietry" type="text" class="input is-small" name="memberDietry">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="memberSong" class="label">Song request</label>
+          <div class="control">
+            <input formControlName="song" placeholder="Song request" id="memberSong" type="text" class="input is-small" name="memberSong">
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <input formControlName="rsvpJake" class="is-checkradio" id="memberRsvpJake-{{i}}" type="checkbox" name="memberRsvpJake-{{i}}">
+            <label for="memberRsvpJake-{{i}}" class="is-marginless">I can attend Jake's 30th</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <button class="button is-primary is-small is-fullwidth is-outlined" type="submit" [ngClass]="{'is-loading': formLoading, 'is-success': memberEdited}">
+              <span *ngIf="!memberEdited">Save</span>
+              <span *ngIf="memberEdited">Saved</span>
+            </button>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>

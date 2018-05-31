@@ -13,22 +13,8 @@
 
 <section class="section">
   <div class="container">
-    <div class="columns is-multiline is-centered" *ngIf="family.members">
-      <div class="column is-one-third" *ngFor="let member of family.members">
-        <div class="card">
-          <header class="card-header has-text-centered">
-            <p class="card-header-title">
-                {{member.firstName}} {{member.lastName}}
-            </p>
-          </header>
-          <div class="card-content">
-            <div class="content">
-              
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="columns is-multiline is-centered" *ngIf="members">
+      <app-rsvp-family [family]="family" [member]="member" [id]="id" [i]="i" class="column is-one-third" *ngFor="let member of members; let i=index"></app-rsvp-family>
     </div>
-
   </div>
 </section>

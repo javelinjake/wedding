@@ -5,5 +5,6 @@ export interface Member {
     day?: boolean;
     rsvp?: boolean;
     rsvpJake?: boolean;
+    dietry?: string;
     song?: string;
   }

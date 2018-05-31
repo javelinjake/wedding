@@ -3,6 +3,7 @@ import { FamilyService } from '../../services/family.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Family } from '../../models/Family';
+import { Member } from '../../models/Member';
 
 @Component({
   selector: 'app-view-family',
@@ -12,6 +13,7 @@ import { Family } from '../../models/Family';
 export class ViewFamilyComponent implements OnInit {
   id: string;
   family: Family;
+  members: Member;
 
   constructor(
     private familyService: FamilyService,
@@ -24,7 +26,12 @@ export class ViewFamilyComponent implements OnInit {
     // Get id from url
     this.id = this.route.snapshot.params['id'];
     // Get family
-    this.familyService.getFamily(this.id).subscribe(family => this.family = family);
+    this.familyService.getFamily(this.id).subscribe(
+      family => {
+        this.family = family;
+        this.members = family.members;
+      } 
+    );
   }
 
 }
