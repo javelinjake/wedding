@@ -1,7 +1,7 @@
 <form #findFamilyForm="ngForm" (ngSubmit)="onSubmit(findFamilyForm)">
   <div class="field has-addons has-addons-fullwidth">
     <div class="control">
-      <input class="input is-basic" type="text" placeholder="Password" name="password" autofocus #familyPassword="ngModel" [(ngModel)]="family.password">
+      <input class="input is-basic" type="password" placeholder="Password" name="password" autofocus #familyPassword="ngModel" [(ngModel)]="family.password">
     </div>
     <div class="control">
       <button class="button is-primary is-outlined is-fullwidth" [ngClass]="{'is-loading': findFamilyLoading}" type="submit">Go</button>
