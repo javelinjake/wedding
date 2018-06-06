@@ -28,7 +28,7 @@ export class SettingsComponent {
     onSubmit({ value, valid }: { value: Settings, valid: boolean }) {
         if (!valid) {
             this.flashMessage.show('Please fill out the form correctly', {
-                cssClass: 'alert-danger', timeout: 4000
+                cssClass: 'message is-danger', timeout: 4000
             });
         } else {
             this.settingsLoading = true;
@@ -39,7 +39,7 @@ export class SettingsComponent {
                 } else {
                     this.settingsLoading = false;
                     this.flashMessage.show('Incorrect password, please try again', {
-                        cssClass: 'alert-danger', timeout: 4000
+                        cssClass: 'message is-danger', timeout: 4000
                     });
                 }
             });

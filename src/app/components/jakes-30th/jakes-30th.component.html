@@ -1,0 +1,28 @@
+<div class="modal" [ngClass]="{'is-active': jakes30thModal}">
+  <div class="modal-background" (click)="jakes30thModal = false"></div>
+  <div class="modal-content">
+    <div class="has-background-light">
+      <div class="columns">
+        <div class="column is-paddingless">
+          <figure class="image is-square">
+            <img src="/assets/jake.jpg">
+          </figure>
+        </div>
+        <div class="column section">
+          <div class="content">
+            <h2 class="title has-text-centered">Jake's 30th</h2>
+            <p>Jake's 30th is on the 2nd Septmeber, just 2 days after the wedding! We will be celebrating a day before, everyone
+              is welcome for a BBQ and some more drinks (if you can handle it!), come and go as you please.</p>
+            <p>
+              <span class="has-text-weight-medium">Location</span> - Box Farm, Glastonbury</p>
+            <p>
+              <span class="has-text-weight-medium">Date</span> - 1st September at 4pm (food at 6)</p>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="modal-close is-large" aria-label="close" (click)="jakes30thModal = false"></button>
+</div>

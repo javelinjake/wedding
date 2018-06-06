@@ -32,7 +32,7 @@ export class EditFamilyComponent implements OnInit {
   onSubmit({value, valid}: {value: Family, valid: boolean}) {
     if(!valid) {
       this.flashMessage.show('Please fill out the form correctly', {
-        cssClass: 'alert-danger', timeout: 4000
+        cssClass: 'message is-danger', timeout: 4000
       });
     } else {
       // Add id to family
@@ -40,7 +40,7 @@ export class EditFamilyComponent implements OnInit {
       // Update family
       this.familyService.updateFamily(value);
       this.flashMessage.show('Family updated', {
-        cssClass: 'alert-success', timeout: 4000
+        cssClass: 'message is-success', timeout: 4000
       });
       this.router.navigate(['/family/'+this.id]);
     }

@@ -18,8 +18,15 @@ export class RsvpFamilyComponent implements OnInit {
     @Input() i: number;
 
     memberForm: FormGroup;
-    memberEdited: boolean;
-    formLoading: boolean;
+    jakes30thModal: boolean = false;
+    dietrys = [
+        'I\'ll eat most things',
+        'Vegan',
+        'Vegetarian',
+        'Pestetarian',
+        'Gluten free',
+        'Nut allergies'
+    ];
 
     constructor(
         private flashMessage: FlashMessagesService,
@@ -35,12 +42,11 @@ export class RsvpFamilyComponent implements OnInit {
             rsvp: [this.member.rsvp ? this.member.rsvp : false ],
             rsvpJake: [this.member.rsvpJake ? this.member.rsvpJake : false ],
             song: [this.member.song ? this.member.song : '' ],
-            dietry: [this.member.dietry ? this.member.dietry : '' ],
+            dietry: [this.member.dietry ? this.member.dietry : 'I\'ll eat most things' ],
         })
     }
 
     async onSubmit() {
-        this.formLoading = true;
         const formValue = this.memberForm.value;
         const formValid = this.memberForm.valid;
         let wholeFamilyData = this.family;
@@ -49,20 +55,20 @@ export class RsvpFamilyComponent implements OnInit {
             this.flashMessage.show('Please fill out the form correctly', {
                 cssClass: 'message is-warning', timeout: 4000
             });
-            this.formLoading = false;
         } else {
             try {
                 wholeFamilyData.members[this.i] = formValue;
                 wholeFamilyData.id = this.id;
                 this.familyService.updateFamily(wholeFamilyData);
 
-                this.memberEdited = true;
-                setTimeout(function() {
-                    this.memberEdited = false;
-                }, 5000);
-                this.formLoading = false;
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+                this.flashMessage.show(formValue.firstName + ' ' + formValue.lastName + ' RSVP saved', {
+                    cssClass: 'message is-success', timeout: 4000
+                });
             } catch (err) {
-                this.formLoading = false;
                 // Show error
                 this.flashMessage.show(err, {
                     cssClass: 'message is-danger', timeout: 4000

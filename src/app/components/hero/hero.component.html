@@ -9,7 +9,13 @@
                             Alex &amp; Jake
                         </h1>
                         <p class="is-small">31/08/2018</p>
-                        <a class="button is-primary is-outlined is-centered has-more-padding" (click)="showPasswordInput = true" *ngIf="!showPasswordInput">
+                        <a class="button is-primary is-outlined is-centered has-more-padding" routerLink="family/{{familyId}}" *ngIf="!showPasswordInput && familyId">
+                            Back to family
+                        </a>
+                        <a class="has-margin-top is-block" (click)="clearFamilyId()" *ngIf="!showPasswordInput && familyId">
+                            Go to another family
+                        </a>
+                        <a class="button is-primary is-outlined is-centered has-more-padding" (click)="showPasswordInput = true" *ngIf="!showPasswordInput && !familyId">
                             RSVP
                         </a>
                         <app-find-family *ngIf="showPasswordInput"></app-find-family>

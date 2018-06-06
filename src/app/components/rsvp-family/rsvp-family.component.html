@@ -16,36 +16,49 @@
         <div class="field">
           <div class="control">
             <input formControlName="rsvp" class="is-checkradio" id="memberRsvp-{{i}}" type="checkbox" name="memberRsvp-{{i}}">
-            <label for="memberRsvp-{{i}}" class="is-marginless">I can attend</label>
+            <label for="memberRsvp-{{i}}" class="is-marginless">I can attend the Wedding</label>
           </div>
         </div>
 
-        <div class="field">
-          <label for="memberDietry" class="label">Dietry requirements</label>
+        <div class="field" *ngIf="memberForm.value.rsvp">
+          <label for="memberDietry-{{i}}" class="label">Dietry requirements</label>
           <div class="control">
-            <input formControlName="dietry" placeholder="Dietry requirements" id="memberDietry" type="text" class="input is-small" name="memberDietry">
+            <div class="select is-fullwidth">
+              <select formControlName="dietry" placeholder="Dietry requirements" id="memberDietry-{{i}}" name="memberDietry-{{i}}" class="input is-small">
+                <option *ngFor="let dietry of dietrys" [ngValue]="dietry">
+                  {{dietry}}
+                </option>
+              </select>
+            </div>
           </div>
         </div>
 
-        <div class="field">
-          <label for="memberSong" class="label">Song request</label>
+        <div class="field" *ngIf="memberForm.value.rsvp">
+          <label for="memberSong-{{i}}" class="label">Song request</label>
           <div class="control">
-            <input formControlName="song" placeholder="Song request" id="memberSong" type="text" class="input is-small" name="memberSong">
+            <input formControlName="song" placeholder="Song request" id="memberSong-{{i}}" type="text" class="input is-small" name="memberSong-{{i}}">
           </div>
+          <p class="help">
+            Be nice!
+          </p>
         </div>
+
+        <hr>
 
         <div class="field">
           <div class="control">
             <input formControlName="rsvpJake" class="is-checkradio" id="memberRsvpJake-{{i}}" type="checkbox" name="memberRsvpJake-{{i}}">
             <label for="memberRsvpJake-{{i}}" class="is-marginless">I can attend Jake's 30th</label>
           </div>
+          <a class="help" (click)="jakes30thModal = true">
+            Jakes 30th?
+          </a>
         </div>
 
         <div class="field">
           <div class="control">
-            <button class="button is-primary is-small is-fullwidth is-outlined" type="submit" [ngClass]="{'is-loading': formLoading, 'is-success': memberEdited}">
-              <span *ngIf="!memberEdited">Save</span>
-              <span *ngIf="memberEdited">Saved</span>
+            <button class="button is-primary is-small is-fullwidth is-outlined" type="submit">
+              Save
             </button>
           </div>
         </div>
@@ -55,3 +68,5 @@
     </div>
   </div>
 </div>
+
+<app-jakes-30th [jakes30thModal]="jakes30thModal"></app-jakes-30th>
