@@ -21,10 +21,10 @@ export class RsvpFamilyComponent implements OnInit {
     jakes30thModal: boolean = false;
     dietrys = [
         'I\'ll eat most things',
-        'Vegan',
+        'Pescetarian',
         'Vegetarian',
-        'Pestetarian',
         'Gluten free',
+        'Vegan',
         'Nut allergies'
     ];
 
