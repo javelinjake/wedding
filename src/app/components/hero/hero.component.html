@@ -1,27 +1,23 @@
 <section class="hero is-threequartersheight has-bg-img" style="background-image: url('/assets/jakealex2.jpg')">
-    <div class="hero-body">
-        <div class="container">
-            <div class="columns is-centered">
-                <div class="column is-fixed-hero">
-                    <div class="box content has-text-centered">
-                        <h1 class="title is-size-1 is-marginless">
-                            <div class="is-normal-family is-size-3 has-margin-bottom">The wedding celebration of</div>
-                            Alex &amp; Jake
-                        </h1>
-                        <p class="is-small">31/08/2018</p>
-                        <a class="button is-primary is-outlined is-centered has-more-padding" routerLink="family/{{familyId}}" *ngIf="!showPasswordInput && familyId">
-                            Back to family
-                        </a>
-                        <a class="has-margin-top is-block" (click)="clearFamilyId()" *ngIf="!showPasswordInput && familyId">
-                            Go to another family
-                        </a>
-                        <a class="button is-primary is-outlined is-centered has-more-padding" (click)="showPasswordInput = true" *ngIf="!showPasswordInput && !familyId">
-                            RSVP
-                        </a>
-                        <app-find-family *ngIf="showPasswordInput"></app-find-family>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="hero-body">
+    <div class="container">
+      <div class="box custom-box content has-text-centered">
+        <h1 class="title is-size-1 is-marginless">
+          <div class="is-normal-family is-size-3 has-margin-bottom">The wedding celebration of</div>
+          Alexandra &amp; Jacob
+        </h1>
+        <p class="is-small">31/08/2018</p>
+        <a class="button is-primary is-outlined is-centered has-more-padding" routerLink="family/{{familyId}}" *ngIf="!showPasswordInput && familyId">
+          Back to family
+        </a>
+        <a class="has-margin-top is-block" (click)="clearFamilyId()" *ngIf="!showPasswordInput && familyId">
+          Go to another family
+        </a>
+        <a class="button is-primary is-outlined is-centered has-more-padding" (click)="showPasswordInput = true" *ngIf="!showPasswordInput && !familyId">
+          RSVP
+        </a>
+        <app-find-family *ngIf="showPasswordInput"></app-find-family>
+      </div>
     </div>
+  </div>
 </section>
