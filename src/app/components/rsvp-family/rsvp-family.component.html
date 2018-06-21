@@ -7,7 +7,7 @@
   <div class="card-content">
     <div class="content">
 
-      <form [formGroup]="memberForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="memberForm" (ngSubmit)="onSubmit()" *ngIf="!familyAdded">
 
         <input class="is-hidden" formControlName="firstName">
         <input class="is-hidden" formControlName="lastName">
@@ -17,6 +17,13 @@
           <div class="control">
             <input formControlName="rsvp" class="is-checkradio" id="memberRsvp-{{i}}" type="checkbox" name="memberRsvp-{{i}}">
             <label for="memberRsvp-{{i}}" class="is-marginless">I can attend the Wedding</label>
+          </div>
+        </div>
+
+        <div class="field" *ngIf="!memberForm.value.rsvp">
+          <div class="control">
+            <input formControlName="rsvpno" class="is-checkradio" id="memberRsvpNo-{{i}}" type="checkbox" name="memberRsvpNo-{{i}}">
+            <label for="memberRsvpNo-{{i}}" class="is-marginless">Sorry, I can't make it</label>
           </div>
         </div>
 
@@ -65,6 +72,21 @@
 
       </form>
 
+      <div class="has-text-centered" *ngIf="familyAdded">
+        <span class="has-text-weight-medium">{{member.firstName}}</span> you're coming to our Wedding and we can't wait to
+        <span *ngIf="!member.song">
+          celebrate it with you!
+        </span>
+        <span *ngIf="member.song">
+          rock to
+          <span class="has-text-weight-medium">{{member.song}}</span> with you!
+        </span>
+
+        <button class="button is-primary is-small is-fullwidth is-outlined has-margin-top" type="button" (click)="editRsvp()">
+          Edit RSVP
+        </button>
+      </div>
+
     </div>
   </div>
 </div>
@@ -76,7 +98,7 @@
       <div class="columns">
         <div class="column is-paddingless">
           <figure class="image is-square">
-            <img src="/assets/square-q-a-2.jpg">
+            <img src="/assets/jake.jpg">
           </figure>
         </div>
         <div class="column section">

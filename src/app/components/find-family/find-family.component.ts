@@ -35,7 +35,7 @@ export class FindFamilyComponent {
                 this.familyFound = family;
                 if (this.familyFound.length > 0) {
                     // Store id into local storage
-                    localStorage.setItem('familyId', this.familyFound[0].id);
+                    //localStorage.setItem('familyId', this.familyFound[0].id);
                     this.router.navigate(['/family/' + this.familyFound[0].id]);
                 } else {
                     this.findFamilyLoading = false;

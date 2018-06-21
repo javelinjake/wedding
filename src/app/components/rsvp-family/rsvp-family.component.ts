@@ -27,6 +27,7 @@ export class RsvpFamilyComponent implements OnInit {
         'Vegan',
         'Nut allergies'
     ];
+    familyAdded: boolean = false;
 
     constructor(
         private flashMessage: FlashMessagesService,
@@ -36,14 +37,19 @@ export class RsvpFamilyComponent implements OnInit {
 
     ngOnInit() {
         this.memberForm = this.fb.group({
-            firstName: [this.member.firstName ? this.member.firstName : '' ],
-            lastName: [this.member.lastName ? this.member.lastName : '' ],
-            day: [this.member.day ? this.member.day : true ],
-            rsvp: [this.member.rsvp ? this.member.rsvp : false ],
-            rsvpJake: [this.member.rsvpJake ? this.member.rsvpJake : false ],
-            song: [this.member.song ? this.member.song : '' ],
-            dietry: [this.member.dietry ? this.member.dietry : 'I\'ll eat most things' ],
+            firstName: [this.member.firstName ? this.member.firstName : ''],
+            lastName: [this.member.lastName ? this.member.lastName : ''],
+            day: [this.member.day ? this.member.day : true],
+            rsvp: [this.member.rsvp ? this.member.rsvp : false],
+            rsvpno: this.member.rsvpno,
+            rsvpJake: [this.member.rsvpJake ? this.member.rsvpJake : false],
+            song: [this.member.song ? this.member.song : ''],
+            dietry: [this.member.dietry ? this.member.dietry : 'I\'ll eat most things'],
         })
+
+        if (this.member.rsvp) {
+            this.familyAdded = true;
+        }
     }
 
     async onSubmit() {
@@ -59,15 +65,23 @@ export class RsvpFamilyComponent implements OnInit {
             try {
                 wholeFamilyData.members[this.i] = formValue;
                 wholeFamilyData.id = this.id;
+                wholeFamilyData.photo = 'jakealexhappy';
+
+                if (wholeFamilyData.members[this.i].rsvp === true && wholeFamilyData.members[this.i].rsvpno === true) {
+                    wholeFamilyData.members[this.i].rsvpno = false;
+                }
+                
                 this.familyService.updateFamily(wholeFamilyData);
 
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
-                this.flashMessage.show(formValue.firstName + ' ' + formValue.lastName + ' RSVP saved', {
-                    cssClass: 'message is-success', timeout: 4000
-                });
+                if (wholeFamilyData.members[this.i].rsvp === false) {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+                    this.flashMessage.show(formValue.firstName + ' ' + formValue.lastName + ' RSVP saved', {
+                        cssClass: 'message is-success', timeout: 4000
+                    });
+                }
             } catch (err) {
                 // Show error
                 this.flashMessage.show(err, {
@@ -77,5 +91,8 @@ export class RsvpFamilyComponent implements OnInit {
         }
     }
 
+    editRsvp() {
+        this.familyAdded = false;
+    }
 
 }
