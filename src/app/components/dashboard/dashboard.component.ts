@@ -11,14 +11,12 @@ import { Family } from '../../models/Family';
 export class DashboardComponent implements OnInit {
 
   families: Family[];
-  totalOwed: number;
 
   constructor(private familyService: FamilyService) { }
 
   ngOnInit() {
     this.familyService.getFamilies().subscribe(families => {
       this.families = families;
-      console.log(this.families);
     });
   }
 
